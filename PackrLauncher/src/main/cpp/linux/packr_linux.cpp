@@ -25,6 +25,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <cstdint>
 
 using namespace std;
 
@@ -35,7 +36,8 @@ int main(int argc, char** argv) {
     if (!setCmdLineArguments(argc, argv)) {
         return EXIT_FAILURE;
     }
-
+    // Set light theme for our SWT app
+    setenv("GTK_THEME", "Adwaita", 1);
     launchJavaVM(defaultLaunchVMDelegate);
 
     return 0;
